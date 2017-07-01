@@ -37,7 +37,7 @@ public class Letter {
         String apply = checkSpell.apply("labda,gogle");
         System.out.println(apply);
 
-        double integrate = integrate(d -> 5d, 3, 7);
+        double integrate = integrate(d -> d + 10, 3, 7);
         System.out.println(integrate);
 
     }
