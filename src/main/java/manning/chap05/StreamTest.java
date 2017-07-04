@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * stream的相关操作01
  * Created by jbwang0106 on 2017/7/3.
  */
 public class StreamTest {
