@@ -42,6 +42,17 @@ public class NumericStreams {
         System.out.println(count);
         System.out.println("-------------------");
 
+        //5. 勾股数
+        Stream<double[]> stream1 = IntStream.rangeClosed(1, 100).boxed()
+                .flatMap(a ->
+                        IntStream.rangeClosed(a, 100)
+                                .mapToObj(
+                                        b -> new double[]{a, b, Math.sqrt(a*a + b*b)})
+                                .filter(t -> t[2] % 1 == 0));
+        stream1.forEach(System.out :: println);
+
+
+
     }
 }
 

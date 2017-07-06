@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.IntSupplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -72,6 +73,28 @@ public class BuildingStreams {
         Stream.generate(Math::random)
                 .limit(5)
                 .forEach(s -> System.out.println(s));
+        System.out.println("------------------------------");
+
+        //计算斐波那契数组的值
+        IntSupplier fie = new IntSupplier() {
+
+            private int prev = 0;
+            private int current = 1;
+
+            @Override
+            public int getAsInt() {
+                int oldValue = this.prev;
+                int nextValue = this.prev + this.current;
+                this.prev = this.current;
+                this.current = nextValue;
+                return oldValue;
+            }
+        };
+
+        IntStream.generate(fie).limit(10).forEach(System.out::println);
+        System.out.println("------------------------------");
+
+
     }
     
 }
